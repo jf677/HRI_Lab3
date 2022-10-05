@@ -1,0 +1,3 @@
+[console_scripts]
+proxemic_detector_node = proxemic_detector_pkg.proxemic_detector_node:main
+
