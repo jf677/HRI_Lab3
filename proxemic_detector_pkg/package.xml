@@ -3,14 +3,20 @@
 <package format="3">
   <name>proxemic_detector_pkg</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="jf677@cornell.edu">fujingchao</maintainer>
-  <license>TODO: License declaration</license>
+  <description>HRI Lab3</description>
+  <maintainer email="zf49@cornell.edu">Zixiong Feng</maintainer>
+  <maintainer email="jf677@cornell.edu">Jingchao Fu</maintainer>
+  <maintainer email="trm75@cornell.edu">Trevor Morcott</maintainer>
+  <license>No License</license>
 
-  <depend>rclpy</depend>
-  <depend>sensor_msgs</depend>
+  <depend>image_transport</depend>
   <depend>cv_bridge</depend>
-  <depend>cv2</depend>
+  <depend>sensor_msgs</depend>
+
+  <depend>python3-opencv</depend>
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
