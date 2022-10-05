@@ -111,12 +111,13 @@ class ProxemicDetection(Node):
         # Initialize variables
         
         x = 1 # linear
-        z = 1 # angular in degrees
+        z = 0.02 # angular in degrees
         proxemic = ""
         #self.curr_state = ... # track current state
         #self.next_state = ... # track next state
         print(selected_bbox)
         print(self.curr_state)
+
 
         #START
         if(self.curr_state == self.state1): # Condition to next state
@@ -130,7 +131,10 @@ class ProxemicDetection(Node):
         elif(self.curr_state == self.state2): # Condition to next state
             if selected_bbox == None:
                  self.move_robot(0,z)
+                 print("Moved to find bbox")
             else:
+                print("Stopping then going to center")
+                self.move_robot(0,0.000001)
                 self.next_state = self.state3
 
         #MOVE
@@ -143,7 +147,6 @@ class ProxemicDetection(Node):
                 in_proxemic = True
                 proxemic = "Intimate"
             elif (distance_to_object >= self.proxemic_ranges["public_depth_threshold_min"] and distance_to_object <= self.proxemic_ranges["public_depth_threshold_max"]):
-                
                 in_proxemic = True
                 proxemic = "Public"
 
@@ -151,8 +154,11 @@ class ProxemicDetection(Node):
             if(in_proxemic): # Condition to next state
                 self.next_state= self.state4
             else:
-                self.update_robot_position(x,z,selected_bbox)
-                self.next_state= self.state3
+                if(selected_bbox is None):
+                    self.next_state = self.state1
+                else:
+                    self.update_robot_position(x,z,selected_bbox)
+                    self.next_state= self.state3
         #ALERT
         elif(self.curr_state == self.state4): # Condition to next state
             # alert user
@@ -369,7 +375,7 @@ class ProxemicDetection(Node):
                     if img_patch_mean < min_dist:
                         min_dist = img_patch_mean
                         selected_bbox = bbox
-
+        print("Min distance: " + str(min_dist))
         return selected_bbox, min_dist
                     
 
@@ -393,7 +399,7 @@ class ProxemicDetection(Node):
         width, height, channels = self.rgb_image.shape
         img_center_line = width/2
         box_center_line = bbox[0]+bbox[2]/2
-
+        print(f"x: {x}, z: {z} , img center line: {img_center_line}, box center line: {box_center_line}")
         # if box on right of center
         if box_center_line > img_center_line and (box_center_line - img_center_line) > buffer:
             self.move_robot(0.0, z, clockwise=True)
@@ -402,7 +408,7 @@ class ProxemicDetection(Node):
             self.move_robot(0.0, z, clockwise=False)
         # else forward
         else:
-            self.move_robot(x, 0.0, clockwise=True)
+            self.move_robot(x, 0.0001, clockwise=True)
 
     def extract_image_patch(self, image, bbox, patch_shape=(20,20)):
         """Extract image patch from bounding box.
