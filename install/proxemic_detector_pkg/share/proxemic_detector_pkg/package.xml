@@ -12,9 +12,6 @@
   <depend>image_transport</depend>
   <depend>cv_bridge</depend>
   <depend>sensor_msgs</depend>
-  <depend>cv2</depend>
-  <depend>playsound</depend>
-  <depend>gtts</depend>
 
   <depend>python3-opencv</depend>
   <depend>rclpy</depend>

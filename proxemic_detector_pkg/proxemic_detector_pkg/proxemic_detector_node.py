@@ -44,7 +44,7 @@ class ProxemicDetection(Node):
         self.rgb_bridge = CvBridge()
 
         # TASK 1: Subscribe to RGB topic
-        self.rgb_subscription = self.create_subscription("/color/preview/image", Image, self.rgb_callback)
+        self.rgb_subscription = self.create_subscription(Image, "/color/preview/image", self.rgb_callback, 10)
 
         
         # Depth Variables
@@ -52,7 +52,7 @@ class ProxemicDetection(Node):
         self.depth_bridge = CvBridge()
 
         # TASK 1: Subscribe to depth topic
-        self.depth_subscription = self.create_subscription("/stereo/depth", Image, self.depth_callback)
+        self.depth_subscription = self.create_subscription(Image, "/stereo/depth", self.depth_callback, 10)
 
         # Create a publisher which can "talk" to robot and tell it to move
         self.movement_pub = self.create_publisher(

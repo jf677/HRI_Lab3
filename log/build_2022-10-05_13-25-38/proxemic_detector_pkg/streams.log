@@ -1,0 +1,24 @@
+[0.714s] Invoking command in '/home/fujingchao/HRI_Lab3/proxemic_detector_pkg': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/proxemic_detector_pkg build --build-base /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build install --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --record /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/install.log --single-version-externally-managed
+[0.923s] running egg_info
+[0.924s] writing ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/PKG-INFO
+[0.925s] writing dependency_links to ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/dependency_links.txt
+[0.925s] writing entry points to ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/entry_points.txt
+[0.926s] writing requirements to ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/requires.txt
+[0.926s] writing top-level names to ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/top_level.txt
+[0.959s] reading manifest file '../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/SOURCES.txt'
+[0.961s] writing manifest file '../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/SOURCES.txt'
+[0.962s] running build
+[0.962s] running build_py
+[0.963s] copying proxemic_detector_pkg/proxemic_detector_node.py -> /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build/lib/proxemic_detector_pkg
+[0.963s] running install
+[0.964s] running install_lib
+[0.965s] copying /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build/lib/proxemic_detector_pkg/proxemic_detector_node.py -> /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/proxemic_detector_pkg
+[0.966s] byte-compiling /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/proxemic_detector_pkg/proxemic_detector_node.py to proxemic_detector_node.cpython-38.pyc
+[0.970s] running install_data
+[0.970s] running install_egg_info
+[0.972s] removing '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/proxemic_detector_pkg-0.0.0-py3.8.egg-info' (and everything under it)
+[0.973s] Copying ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info to /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/proxemic_detector_pkg-0.0.0-py3.8.egg-info
+[0.974s] running install_scripts
+[0.992s] Installing proxemic_detector_node script to /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/proxemic_detector_pkg
+[0.992s] writing list of installed files to '/home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/install.log'
+[1.017s] Invoked command in '/home/fujingchao/HRI_Lab3/proxemic_detector_pkg' returned '0': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/proxemic_detector_pkg build --build-base /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build install --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --record /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/install.log --single-version-externally-managed

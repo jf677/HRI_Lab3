@@ -43,19 +43,16 @@ class ProxemicDetection(Node):
         self.rgb_image = None
         self.rgb_bridge = CvBridge()
 
-        # TASK 1: Subscribe to depth topic
-        '''
-        self.rgb_subscription = (..)
-        '''
+        # TASK 1: Subscribe to RGB topic
+        self.rgb_subscription = self.create_subscription(Image, "/color/preview/image", self.rgb_callback, 10)
+
         
         # Depth Variables
         self.depth_image = None
         self.depth_bridge = CvBridge()
 
         # TASK 1: Subscribe to depth topic
-        '''
-        self.depth_subscription = (...)
-        '''
+        self.depth_subscription = self.create_subscription(Image, "/stereo/depth", self.depth_callback, 10)
 
         # Create a publisher which can "talk" to robot and tell it to move
         self.movement_pub = self.create_publisher(
@@ -112,38 +109,61 @@ class ProxemicDetection(Node):
         # Detect the distance to objects
         selected_bbox, distance_to_object = self.detection_object_distance()
         # Initialize variables
-        '''
-        x = ... # linear
-        z = ... # angular in degrees
-        self.curr_state = ... # track current state
-        self.next_state = ... # track next state
-        '''
-
-        '''
-        if(self.curr_state == self.state1):
-            # Do something
-
-            # Condition to next stat
-        elif(self.curr_state == self.state2):
-            # Do something
-
-            # Condition to next state
-        elif(self.curr_state == self.state3):
-            # Do something
-
-            # Condition to next state
-        elif(self.curr_state == self.state4):
-            # Do something
-
-            # Condition to next state
-        elif(self.curr_state == self.state5):
-            # Do something
-
-            # Condition to next state
         
+        x = 1 # linear
+        z = 1 # angular in degrees
+        proxemic = ""
+        #self.curr_state = ... # track current state
+        #self.next_state = ... # track next state
+        
+        #START
+        if(self.curr_state == self.state1): # Condition to next state
+            # Do something
+                if selected_bbox == None:
+                    self.next_state = self.state2
+                else:
+                    self.next_state = self.state3
+            # Condition to next stat
+        #ROTATE    
+        elif(self.curr_state == self.state2): # Condition to next state
+            if selected_bbox == None:
+                 self.move_robot(0,1)
+            else:
+                self.next_state = self.state3
+
+        #MOVE
+        elif(self.curr_state == self.state3): 
+            in_proxemic = False
+
+            # Check if in a proxemix zone
+            if(distance_to_object >= self.proxemic_ranges["intimate_depth_threshold_min"] and distance_to_object <= self.proxemic_ranges["intimate_depth_threshold_max"]):
+                self.robot_talker("Inside intimate proxemic zone!")
+                in_proxemic = True
+                proxemic = "Intimate"
+            elif (distance_to_object >= self.proxemic_ranges["public_depth_threshold_min"] and distance_to_object <= self.proxemic_ranges["public_depth_threshold_max"]):
+                
+                in_proxemic = True
+                proxemic = "Public"
+
+            ## Otherwise move
+            if(in_proxemic): # Condition to next state
+                self.next_state= self.state4
+            else:
+                self.update_robot_position(x,z,selected_bbox)
+                self.next_state= self.state3
+        #ALERT
+        elif(self.curr_state == self.state4): # Condition to next state
+            # alert user
+            self.robot_talker("Inside proxemix zone " + proxemic)
+            self.robot_talker("How comfortable are you inside the " + proxemic + " zone?")
+            self.next_state= self.state5
+            
+        # RESTART
+        elif(self.curr_state == self.state5):
+            self.robot_talker("I have reached my final state")
+            self.next_state = None
         # Advance to next state
         self.curr_state = self.next_state
-        '''
 
     def rgb_callback(self, msg):
         """Convert ROS RGB sensor_msgs to opencv image
@@ -337,6 +357,26 @@ class ProxemicDetection(Node):
         # Process image data to detect nearby objects; set distance_to_object
         # Compute to average depth pixel distance to nearby objects
         # Use min distance to detect proximitis zones
+        selected_bbox = None
+        min_dist = float('inf')
+        for color in ["red", "green", "blue"]:
+            for bbox in self.bboxes[color]:
+                img_patch = self.extract_image_patch(self.depth_image, bbox) 
+                if(img_patch): 
+                    img_patch_mean = np.mean(img_patch)
+                    if img_patch_mean < min_dist:
+                        min_dist = img_patch_mean
+                        selected_bbox = bbox
+
+        for key in ["intimate_depth_threshold_min", "intimate_depth_threshold_max", "public_depth_threshold_min", "public_depth_threshold_max"]:
+            if (min_dist < self.proxemic_ranges[key]):
+                print ("Entered proxemic zone!:" + key)
+                break
+        
+        
+            
+        return selected_bbox, min_dist
+                    
 
     def update_robot_position(self, x, z, bbox, buffer=10):
         """Update the robot's position based on location of bounding box.
@@ -360,8 +400,14 @@ class ProxemicDetection(Node):
         box_center_line = bbox[0]+bbox[2]/2
 
         # if box on right of center
+        if box_center_line > img_center_line and (box_center_line - img_center_line) > buffer:
+            self.move_robot(0.0, z, clockwise=True)
         # elif box on left of center
+        elif box_center_line < img_center_line and (img_center_line - box_center_line) > buffer:
+            self.move_robot(0.0, z, clockwise=False)
         # else forward
+        else:
+            self.move_robot(x, 0.0, clockwise=True)
 
     def extract_image_patch(self, image, bbox, patch_shape=(20,20)):
         """Extract image patch from bounding box.
@@ -434,6 +480,8 @@ class ProxemicDetection(Node):
         # Play audio file with playsound library
         playsound.playsound(output_filename, True)
 
+
+
 def main(args=None):
     # Initialize the rclpy library
     rclpy.init(args=args)
@@ -449,7 +497,7 @@ def main(args=None):
     robot_speed = 15 # meters per second
 
     # Create the node. 
-    proxemic_detector = ProxemicDetection(selected_zone, proxemic_ranges, display=display, color=color, robot_speed=robot_speed)
+    proxemic_detector = ProxemicDetection(selected_zone, proxemic_ranges, display=display, color="red", robot_speed=robot_speed)
 
     if(proxemic_detector.curr_state == proxemic_detector.state5):
         proxemic_detector.destroy_node()
