@@ -115,11 +115,13 @@ class ProxemicDetection(Node):
         proxemic = ""
         #self.curr_state = ... # track current state
         #self.next_state = ... # track next state
-        
+        print(selected_bbox)
+        print(self.curr_state)
+
         #START
         if(self.curr_state == self.state1): # Condition to next state
             # Do something
-                if selected_bbox == None:
+                if selected_bbox == None:                    
                     self.next_state = self.state2
                 else:
                     self.next_state = self.state3
@@ -127,7 +129,7 @@ class ProxemicDetection(Node):
         #ROTATE    
         elif(self.curr_state == self.state2): # Condition to next state
             if selected_bbox == None:
-                 self.move_robot(0,1)
+                 self.move_robot(0,z)
             else:
                 self.next_state = self.state3
 
@@ -362,19 +364,12 @@ class ProxemicDetection(Node):
         for color in ["red", "green", "blue"]:
             for bbox in self.bboxes[color]:
                 img_patch = self.extract_image_patch(self.depth_image, bbox) 
-                if(img_patch): 
+                if(img_patch is not None): 
                     img_patch_mean = np.mean(img_patch)
                     if img_patch_mean < min_dist:
                         min_dist = img_patch_mean
                         selected_bbox = bbox
 
-        for key in ["intimate_depth_threshold_min", "intimate_depth_threshold_max", "public_depth_threshold_min", "public_depth_threshold_max"]:
-            if (min_dist < self.proxemic_ranges[key]):
-                print ("Entered proxemic zone!:" + key)
-                break
-        
-        
-            
         return selected_bbox, min_dist
                     
 
@@ -497,7 +492,7 @@ def main(args=None):
     robot_speed = 15 # meters per second
 
     # Create the node. 
-    proxemic_detector = ProxemicDetection(selected_zone, proxemic_ranges, display=display, color="red", robot_speed=robot_speed)
+    proxemic_detector = ProxemicDetection(selected_zone, proxemic_ranges, display=display, color=None, robot_speed=robot_speed)
 
     if(proxemic_detector.curr_state == proxemic_detector.state5):
         proxemic_detector.destroy_node()

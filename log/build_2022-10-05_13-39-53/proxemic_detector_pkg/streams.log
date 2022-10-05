@@ -1,0 +1,18 @@
+[0.660s] Invoking command in '/home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --editable --build-directory /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build --no-deps install_data --install-dir /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg
+[0.890s] running develop
+[1.017s] running egg_info
+[1.017s] writing proxemic_detector_pkg.egg-info/PKG-INFO
+[1.018s] writing dependency_links to proxemic_detector_pkg.egg-info/dependency_links.txt
+[1.018s] writing entry points to proxemic_detector_pkg.egg-info/entry_points.txt
+[1.018s] writing requirements to proxemic_detector_pkg.egg-info/requires.txt
+[1.018s] writing top-level names to proxemic_detector_pkg.egg-info/top_level.txt
+[1.049s] reading manifest file 'proxemic_detector_pkg.egg-info/SOURCES.txt'
+[1.050s] writing manifest file 'proxemic_detector_pkg.egg-info/SOURCES.txt'
+[1.085s] running build_ext
+[1.087s] Creating /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/site.py
+[1.089s] Creating /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/proxemic-detector-pkg.egg-link (link to .)
+[1.090s] Installing proxemic_detector_node script to /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/proxemic_detector_pkg
+[1.090s] 
+[1.090s] Installed /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg
+[1.091s] running install_data
+[1.122s] Invoked command in '/home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg' returned '0': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --editable --build-directory /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build --no-deps install_data --install-dir /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg

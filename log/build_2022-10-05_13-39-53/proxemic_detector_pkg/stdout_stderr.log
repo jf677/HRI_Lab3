@@ -1,0 +1,16 @@
+running develop
+running egg_info
+writing proxemic_detector_pkg.egg-info/PKG-INFO
+writing dependency_links to proxemic_detector_pkg.egg-info/dependency_links.txt
+writing entry points to proxemic_detector_pkg.egg-info/entry_points.txt
+writing requirements to proxemic_detector_pkg.egg-info/requires.txt
+writing top-level names to proxemic_detector_pkg.egg-info/top_level.txt
+reading manifest file 'proxemic_detector_pkg.egg-info/SOURCES.txt'
+writing manifest file 'proxemic_detector_pkg.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/site.py
+Creating /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/proxemic-detector-pkg.egg-link (link to .)
+Installing proxemic_detector_node script to /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/proxemic_detector_pkg
+
+Installed /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg
+running install_data
