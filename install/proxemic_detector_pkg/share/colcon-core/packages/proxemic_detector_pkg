@@ -1,1 +1,1 @@
-cv2:cv_bridge:rclpy:sensor_msgs
+cv2:cv_bridge:geometry_msgs:gtts:image_transport:playsound:python3-opencv:rclpy:sensor_msgs:std_msgs
