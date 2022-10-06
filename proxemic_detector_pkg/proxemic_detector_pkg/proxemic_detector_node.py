@@ -9,6 +9,7 @@ from std_msgs.msg import String                 # Used to process ROS images
 from geometry_msgs.msg import Twist             # Sends velocity commands to the robot\
 import playsound                                # Play .mp3 file
 from gtts import gTTS                           # Text-to-speech
+import time
 
 PI = 3.1415926535897
 
@@ -95,6 +96,9 @@ class ProxemicDetection(Node):
         t0 = self.get_clock().now().seconds_nanoseconds()[0]
         current_angle = 0
 
+        if relative_angle == 0:
+            self.movement_pub.publish(self.move_cmd)
+
         while(current_angle < relative_angle):
             self.movement_pub.publish(self.move_cmd)
             t1 = self.get_clock().now().seconds_nanoseconds()[0]
@@ -109,9 +113,9 @@ class ProxemicDetection(Node):
         # Detect the distance to objects
         selected_bbox, distance_to_object = self.detection_object_distance()
         # Initialize variables
-        
         x = 1 # linear
         z = 0.02 # angular in degrees
+        time.sleep(1)
         proxemic = ""
         #self.curr_state = ... # track current state
         #self.next_state = ... # track next state
@@ -127,14 +131,12 @@ class ProxemicDetection(Node):
                 else:
                     self.next_state = self.state3
             # Condition to next stat
+
         #ROTATE    
         elif(self.curr_state == self.state2): # Condition to next state
             if selected_bbox == None:
                  self.move_robot(0,z)
-                 print("Moved to find bbox")
             else:
-                print("Stopping then going to center")
-                self.move_robot(0,0.000001)
                 self.next_state = self.state3
 
         #MOVE
@@ -408,7 +410,7 @@ class ProxemicDetection(Node):
             self.move_robot(0.0, z, clockwise=False)
         # else forward
         else:
-            self.move_robot(x, 0.0001, clockwise=True)
+            self.move_robot(x, 0, clockwise=True)
 
     def extract_image_patch(self, image, bbox, patch_shape=(20,20)):
         """Extract image patch from bounding box.
