@@ -115,7 +115,6 @@ class ProxemicDetection(Node):
         # Initialize variables
         x = 1 # linear
         z = 0.02 # angular in degrees
-        time.sleep(1)
         proxemic = ""
         #self.curr_state = ... # track current state
         #self.next_state = ... # track next state
@@ -172,7 +171,9 @@ class ProxemicDetection(Node):
         elif(self.curr_state == self.state5):
             self.robot_talker("I have reached my final state")
             self.next_state = None
+            
         # Advance to next state
+        time.sleep(1)
         self.curr_state = self.next_state
 
     def rgb_callback(self, msg):
