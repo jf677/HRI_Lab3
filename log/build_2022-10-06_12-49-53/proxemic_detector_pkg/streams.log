@@ -1,0 +1,27 @@
+[1.733s] Invoking command in '/home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --uninstall --editable --build-directory /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build
+[2.337s] running develop
+[2.742s] Invoked command in '/home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg' returned '0': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --uninstall --editable --build-directory /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build
+[2.754s] Invoking command in '/home/fujingchao/HRI_Lab3/proxemic_detector_pkg': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/proxemic_detector_pkg build --build-base /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build install --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --record /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/install.log --single-version-externally-managed
+[3.303s] running egg_info
+[3.304s] writing ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/PKG-INFO
+[3.305s] writing dependency_links to ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/dependency_links.txt
+[3.305s] writing entry points to ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/entry_points.txt
+[3.306s] writing requirements to ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/requires.txt
+[3.306s] writing top-level names to ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/top_level.txt
+[3.369s] reading manifest file '../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/SOURCES.txt'
+[3.371s] writing manifest file '../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info/SOURCES.txt'
+[3.372s] running build
+[3.372s] running build_py
+[3.373s] copying proxemic_detector_pkg/proxemic_detector_node.py -> /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build/lib/proxemic_detector_pkg
+[3.373s] running install
+[3.374s] running install_lib
+[3.376s] copying /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build/lib/proxemic_detector_pkg/proxemic_detector_node.py -> /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/proxemic_detector_pkg
+[3.377s] byte-compiling /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/proxemic_detector_pkg/proxemic_detector_node.py to proxemic_detector_node.cpython-38.pyc
+[3.385s] running install_data
+[3.385s] running install_egg_info
+[3.388s] removing '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/proxemic_detector_pkg-0.0.0-py3.8.egg-info' (and everything under it)
+[3.389s] Copying ../build/proxemic_detector_pkg/proxemic_detector_pkg.egg-info to /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages/proxemic_detector_pkg-0.0.0-py3.8.egg-info
+[3.392s] running install_scripts
+[3.433s] Installing proxemic_detector_node script to /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/proxemic_detector_pkg
+[3.434s] writing list of installed files to '/home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/install.log'
+[3.491s] Invoked command in '/home/fujingchao/HRI_Lab3/proxemic_detector_pkg' returned '0': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/proxemic_detector_pkg build --build-base /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build install --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --record /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/install.log --single-version-externally-managed

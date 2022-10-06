@@ -44,6 +44,7 @@ class ProxemicDetection(Node):
         self.rgb_image = None
         self.rgb_bridge = CvBridge()
 
+        self.counter = 0
         # TASK 1: Subscribe to RGB topic
         self.rgb_subscription = self.create_subscription(Image, "/color/preview/image", self.rgb_callback, 10)
 
@@ -105,8 +106,8 @@ class ProxemicDetection(Node):
             current_angle = angular_speed*(t1-t0)
 
     def stop_robot(self):
-        self.move_cmd.linear.x = 0
-        self.move_cmd.angular.z = 0
+        self.move_cmd.linear.x = 0.0
+        self.move_cmd.angular.z = 0.0
         self.movement_pub.publish(self.move_cmd)
         
     def update_state_machine(self):
@@ -118,8 +119,8 @@ class ProxemicDetection(Node):
         # Detect the distance to objects
         selected_bbox, distance_to_object = self.detection_object_distance()
         # Initialize variables
-        x = 2 # linear
-        z = 0.09 # angular in degrees
+        x = 4 # linear
+        z = 0.2 # angular in degrees
         proxemic = ""
         #self.curr_state = ... # track current state
         #self.next_state = ... # track next state
@@ -142,7 +143,7 @@ class ProxemicDetection(Node):
             if selected_bbox == None:
                  self.move_robot(0,z)
             else:
-                counter = 10
+                self.counter = 10
                 self.next_state = self.state3
                 self.stop_robot()
 
@@ -165,14 +166,14 @@ class ProxemicDetection(Node):
                 self.next_state= self.state4
             else:
                 if(selected_bbox is None):
-                    print("Lose object, counter: {counter}")
-                    counter -= 1
+                    print(f"Lose object, counter: {self.counter}")
+                    self.counter -= 1
                     self.stop_robot()
-                    if counter <= 0:
+                    if self.counter <= 0:
                         print("Go back to state 1")
                         self.next_state = self.state1
                 else:
-                    counter = 10
+                    self.counter = 10
                     self.update_robot_position(x,z,selected_bbox)
                     self.next_state= self.state3
 

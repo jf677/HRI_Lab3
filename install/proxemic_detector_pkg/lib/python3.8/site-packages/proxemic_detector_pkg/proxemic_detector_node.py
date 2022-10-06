@@ -44,6 +44,7 @@ class ProxemicDetection(Node):
         self.rgb_image = None
         self.rgb_bridge = CvBridge()
 
+        self.counter = 0
         # TASK 1: Subscribe to RGB topic
         self.rgb_subscription = self.create_subscription(Image, "/color/preview/image", self.rgb_callback, 10)
 
@@ -104,6 +105,11 @@ class ProxemicDetection(Node):
             t1 = self.get_clock().now().seconds_nanoseconds()[0]
             current_angle = angular_speed*(t1-t0)
 
+    def stop_robot(self):
+        self.move_cmd.linear.x = 0.0
+        self.move_cmd.angular.z = 0.0
+        self.movement_pub.publish(self.move_cmd)
+        
     def update_state_machine(self):
         """Add Comments
         ----------
@@ -113,15 +119,15 @@ class ProxemicDetection(Node):
         # Detect the distance to objects
         selected_bbox, distance_to_object = self.detection_object_distance()
         # Initialize variables
-        x = 1 # linear
-        z = 0.02 # angular in degrees
-        time.sleep(1)
+        x = 4 # linear
+        z = 0.2 # angular in degrees
         proxemic = ""
         #self.curr_state = ... # track current state
         #self.next_state = ... # track next state
-        print(selected_bbox)
+        print("-" * 50)
         print(self.curr_state)
-
+        print(selected_bbox)
+        print("Distance to object: " + str(distance_to_object))
 
         #START
         if(self.curr_state == self.state1): # Condition to next state
@@ -137,7 +143,9 @@ class ProxemicDetection(Node):
             if selected_bbox == None:
                  self.move_robot(0,z)
             else:
+                self.counter = 10
                 self.next_state = self.state3
+                self.stop_robot()
 
         #MOVE
         elif(self.curr_state == self.state3): 
@@ -154,13 +162,21 @@ class ProxemicDetection(Node):
 
             ## Otherwise move
             if(in_proxemic): # Condition to next state
+                self.stop_robot()
                 self.next_state= self.state4
             else:
                 if(selected_bbox is None):
-                    self.next_state = self.state1
+                    print(f"Lose object, counter: {self.counter}")
+                    self.counter -= 1
+                    self.stop_robot()
+                    if self.counter <= 0:
+                        print("Go back to state 1")
+                        self.next_state = self.state1
                 else:
+                    self.counter = 10
                     self.update_robot_position(x,z,selected_bbox)
                     self.next_state= self.state3
+
         #ALERT
         elif(self.curr_state == self.state4): # Condition to next state
             # alert user
@@ -172,8 +188,10 @@ class ProxemicDetection(Node):
         elif(self.curr_state == self.state5):
             self.robot_talker("I have reached my final state")
             self.next_state = None
+
         # Advance to next state
         self.curr_state = self.next_state
+        time.sleep(1)
 
     def rgb_callback(self, msg):
         """Convert ROS RGB sensor_msgs to opencv image
@@ -377,7 +395,6 @@ class ProxemicDetection(Node):
                     if img_patch_mean < min_dist:
                         min_dist = img_patch_mean
                         selected_bbox = bbox
-        print("Min distance: " + str(min_dist))
         return selected_bbox, min_dist
                     
 
@@ -405,12 +422,15 @@ class ProxemicDetection(Node):
         # if box on right of center
         if box_center_line > img_center_line and (box_center_line - img_center_line) > buffer:
             self.move_robot(0.0, z, clockwise=True)
+            print("Rotate clockwise")
         # elif box on left of center
         elif box_center_line < img_center_line and (img_center_line - box_center_line) > buffer:
             self.move_robot(0.0, z, clockwise=False)
+            print("Rotate counter-clockwise")
         # else forward
         else:
             self.move_robot(x, 0, clockwise=True)
+            print("Going forward")
 
     def extract_image_patch(self, image, bbox, patch_shape=(20,20)):
         """Extract image patch from bounding box.

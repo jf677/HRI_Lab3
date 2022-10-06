@@ -1,0 +1,115 @@
+[0.246s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.247s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f683c453670>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=4, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f683c453670>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f683c453bb0>)
+[0.290s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.291s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.291s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.291s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.292s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.292s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.292s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/fujingchao/HRI_Lab3'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(proxemic_detector_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(proxemic_detector_pkg) by extension 'ignore'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(proxemic_detector_pkg) by extension 'ignore_ament_install'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(proxemic_detector_pkg) by extensions ['colcon_pkg']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(proxemic_detector_pkg) by extension 'colcon_pkg'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(proxemic_detector_pkg) by extensions ['colcon_meta']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(proxemic_detector_pkg) by extension 'colcon_meta'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(proxemic_detector_pkg) by extensions ['ros']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(proxemic_detector_pkg) by extension 'ros'
+[0.338s] DEBUG:colcon.colcon_core.package_identification:Package 'proxemic_detector_pkg' with type 'ros.ament_python' and name 'proxemic_detector_pkg'
+[0.338s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.339s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.339s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.339s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.339s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.368s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.368s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.373s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/fujingchao/HRI_Lab3/install
+[0.378s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 304 installed packages in /opt/ros/galactic
+[0.381s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.527s] Level 5:colcon.colcon_core.verb:set package 'proxemic_detector_pkg' build argument 'cmake_args' from command line to 'None'
+[0.528s] Level 5:colcon.colcon_core.verb:set package 'proxemic_detector_pkg' build argument 'cmake_target' from command line to 'None'
+[0.528s] Level 5:colcon.colcon_core.verb:set package 'proxemic_detector_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.528s] Level 5:colcon.colcon_core.verb:set package 'proxemic_detector_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.528s] Level 5:colcon.colcon_core.verb:set package 'proxemic_detector_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[0.528s] Level 5:colcon.colcon_core.verb:set package 'proxemic_detector_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[0.529s] Level 5:colcon.colcon_core.verb:set package 'proxemic_detector_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[0.529s] Level 5:colcon.colcon_core.verb:set package 'proxemic_detector_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.529s] Level 5:colcon.colcon_core.verb:set package 'proxemic_detector_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.529s] DEBUG:colcon.colcon_core.verb:Building package 'proxemic_detector_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg', 'merge_install': False, 'path': '/home/fujingchao/HRI_Lab3/proxemic_detector_pkg', 'symlink_install': False, 'test_result_base': None}
+[0.530s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.536s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.537s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/fujingchao/HRI_Lab3/proxemic_detector_pkg' with build type 'ament_python'
+[0.537s] Level 1:colcon.colcon_core.shell:create_environment_hook('proxemic_detector_pkg', 'ament_prefix_path')
+[0.547s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.548s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/hook/ament_prefix_path.ps1'
+[0.550s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/hook/ament_prefix_path.dsv'
+[0.551s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/hook/ament_prefix_path.sh'
+[0.556s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.556s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.162s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/fujingchao/HRI_Lab3/proxemic_detector_pkg'
+[1.168s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.168s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.030s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --uninstall --editable --build-directory /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build
+[2.932s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg' returned '0': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --uninstall --editable --build-directory /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build
+[2.942s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fujingchao/HRI_Lab3/proxemic_detector_pkg': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/proxemic_detector_pkg build --build-base /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build install --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --record /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/install.log --single-version-externally-managed
+[3.634s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fujingchao/HRI_Lab3/proxemic_detector_pkg' returned '0': PYTHONPATH=/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/proxemic_detector_pkg build --build-base /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/build install --prefix /home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg --record /home/fujingchao/HRI_Lab3/build/proxemic_detector_pkg/install.log --single-version-externally-managed
+[3.643s] Level 1:colcon.colcon_core.environment:checking '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg' for CMake module files
+[3.644s] Level 1:colcon.colcon_core.environment:checking '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg' for CMake config files
+[3.647s] Level 1:colcon.colcon_core.environment:checking '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib'
+[3.647s] Level 1:colcon.colcon_core.environment:checking '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/bin'
+[3.648s] Level 1:colcon.colcon_core.environment:checking '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/pkgconfig/proxemic_detector_pkg.pc'
+[3.648s] Level 1:colcon.colcon_core.environment:checking '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/lib/python3.8/site-packages'
+[3.648s] Level 1:colcon.colcon_core.shell:create_environment_hook('proxemic_detector_pkg', 'pythonpath')
+[3.650s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/hook/pythonpath.ps1'
+[3.652s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/hook/pythonpath.dsv'
+[3.653s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/hook/pythonpath.sh'
+[3.655s] Level 1:colcon.colcon_core.environment:checking '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/bin'
+[3.655s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(proxemic_detector_pkg)
+[3.657s] INFO:colcon.colcon_core.shell:Creating package script '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/package.ps1'
+[3.659s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/package.dsv'
+[3.660s] INFO:colcon.colcon_core.shell:Creating package script '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/package.sh'
+[3.661s] INFO:colcon.colcon_core.shell:Creating package script '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/package.bash'
+[3.662s] INFO:colcon.colcon_core.shell:Creating package script '/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/proxemic_detector_pkg/package.zsh'
+[3.665s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fujingchao/HRI_Lab3/install/proxemic_detector_pkg/share/colcon-core/packages/proxemic_detector_pkg)
+[3.667s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.668s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.668s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[3.668s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.682s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.683s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.683s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.720s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.721s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fujingchao/HRI_Lab3/install/local_setup.ps1'
+[3.723s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/fujingchao/HRI_Lab3/install/_local_setup_util_ps1.py'
+[3.725s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fujingchao/HRI_Lab3/install/setup.ps1'
+[3.729s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fujingchao/HRI_Lab3/install/local_setup.sh'
+[3.731s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/fujingchao/HRI_Lab3/install/_local_setup_util_sh.py'
+[3.732s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fujingchao/HRI_Lab3/install/setup.sh'
+[3.735s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fujingchao/HRI_Lab3/install/local_setup.bash'
+[3.736s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fujingchao/HRI_Lab3/install/setup.bash'
+[3.738s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fujingchao/HRI_Lab3/install/local_setup.zsh'
+[3.740s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fujingchao/HRI_Lab3/install/setup.zsh'
